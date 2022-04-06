@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'  
 })
 export class SpotifyService {
+  getArtist(artistId: string | null): import("rxjs").Observable<Object> {
+    throw new Error('Method not implemented.');
+  }
   //url per oauth: https://developer.spotify.com/console/get-search-item/
   //Ottengo il modulo HttpClient
   constructor(private http: HttpClient) { }
@@ -29,4 +32,10 @@ export class SpotifyService {
     return this.http.get(url, { headers });
   }
 
+  searchArtis(query: string) {
+    const url = 'https://api.spotify.com/v1/search?q=${query}&type=artist';
+    const headers = new HttpHeaders({Autorization: environment.oauthToken});
+  ;
+  let obsArtist = 
+  }
 }
